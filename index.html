@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الشخصي</title>
+    
+    <meta name="description" content="الموقع الشخصي للمطور محمد محيي الدين، يحتوي على مشاريع برمجية وخدمات تقنية.">
+    <meta name="keywords" content="برمجة, تطوير ويب, تطبيقات, محمد محيي الدين, خدمات تقنية">
+    <meta name="author" content="محمد محيي الدين">
+    
+    <title>موقع محمد محيي الدين</title>
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -66,25 +72,70 @@
             color: white;
             margin-top: 20px;
         }
+        
+        /* تنسيق نموذج رفع الملفات */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .upload-btn {
+            padding: 10px 20px;
+            background-color: #18bc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .upload-btn:hover {
+            background-color: #128f76;
+        }
+        
+        /* تنسيق رقم الهاتف */
+        .phone-link {
+            color: #18bc9c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .phone-link:hover {
+            color: #128f76;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>مرحباً بك في موقعي</h1>
+        <h1>مرحباً بك في موقع محمد محيي الدين</h1>
         <p>مطور ومحب للتقنية</p>
     </header>
 
     <nav>
         <a href="#about">نبذة عني</a>
         <a href="#projects">مشاريعي</a>
+        <a href="#upload">رفع الملفات</a>
         <a href="#contact">تواصل معي</a>
     </nav>
 
     <div class="container">
         <section id="about">
             <h2 class="section-title">نبذة عني</h2>
-            <p>أنا مهتم بمجال التكنولوجيا، أعمل على تطوير مهاراتي باستمرار، وأستمتع بالعمل على إيجاد حلول تقنية وتطوير برمجيات مفيدة.</p>
+            <p>أنا محمد محيي الدين، مهتم بمجال التكنولوجيا، أعمل على تطوير مهاراتي باستمرار، وأستمتع بالعمل على إيجاد حلول تقنية وتطوير برمجيات مفيدة.</p>
         </section>
 
         <section id="projects">
@@ -101,14 +152,46 @@
             </div>
         </section>
 
+        <section id="upload">
+            <h2 class="section-title">رفع وتقييم الملفات</h2>
+            <p>يمكنك تسمية، تقييم، ورفع الملفات هنا:</p>
+            
+            <form action="/upload-endpoint" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="fileTitle">عنوان أو اسم الملف:</label>
+                    <input type="text" id="fileTitle" name="fileTitle" class="form-control" placeholder="أدخل عنواناً للملف هنا..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fileRating">تقييم الملف:</label>
+                    <select id="fileRating" name="fileRating" class="form-control" required>
+                        <option value="5" selected>⭐⭐⭐⭐⭐ (ممتاز)</option>
+                        <option value="4">⭐⭐⭐⭐ (جيد جداً)</option>
+                        <option value="3">⭐⭐⭐ (جيد)</option>
+                        <option value="2">⭐⭐ (مقبول)</option>
+                        <option value="1">⭐ (ضعيف)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fileUpload">اختر ملفاً لرفعه:</label>
+                    <input type="file" id="fileUpload" name="uploadedFile" class="form-control" required>
+                </div>
+                
+                <button type="submit" class="upload-btn">رفع الملف</button>
+            </form>
+        </section>
+
         <section id="contact">
             <h2 class="section-title">تواصل معي</h2>
             <p>يمكنك متابعة أعمالي أو التواصل معي عبر حسابي على GitHub أو منصات العمل الحر.</p>
+            <p><strong>للتواصل المباشر (هاتفياً):</strong> <a href="tel:01025786913" class="phone-link" dir="ltr">٠١٠٢٥٧٨٦٩١٣</a></p>
         </section>
     </div>
 
     <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026</p>
+        <p>جميع الحقوق محفوظة لمحمد محيي الدين &copy; 2026</p>
     </footer>
 
 </body>
