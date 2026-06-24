@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #34495e;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #18bc9c;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #18bc9c;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .project-card {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-right: 4px solid #18bc9c;
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>مرحباً بك في موقعي</h1>
+        <p>مطور ومحب للتقنية</p>
+    </header>
+
+    <nav>
+        <a href="#about">نبذة عني</a>
+        <a href="#projects">مشاريعي</a>
+        <a href="#contact">تواصل معي</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">نبذة عني</h2>
+            <p>أنا مهتم بمجال التكنولوجيا، أعمل على تطوير مهاراتي باستمرار، وأستمتع بالعمل على إيجاد حلول تقنية وتطوير برمجيات مفيدة.</p>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">مشاريعي واهتماماتي</h2>
+            
+            <div class="project-card">
+                <h3>تطوير التطبيقات</h3>
+                <p>العمل على برمجة وتطوير تطبيقات باستخدام لغات مثل Java و Kotlin، وإدارة الأكواد البرمجية.</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>الدعم التقني والخدمات</h3>
+                <p>حل المشاكل التقنية للأنظمة المختلفة، وتقديم خدمات تقنية مصغرة.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">تواصل معي</h2>
+            <p>يمكنك متابعة أعمالي أو التواصل معي عبر حسابي على GitHub أو منصات العمل الحر.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
