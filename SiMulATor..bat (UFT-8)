@@ -1,0 +1,38 @@
+@echo off
+chcp 65001 >nul
+title [HORMUZ_STARS_SIMULATOR] - SAFE_MODE
+color 0c
+
+:: [SIMULATION START]
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !      WELCOME TO THE SIMULATION MODE             !
+echo !      THIS VERSION IS SAFE FOR TESTING           !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+timeout /t 3 >nul
+
+:: استدعاء الصوت (المدمر + يو آر أن إيديت)
+set "id=%random%"
+set "f_audio=%temp%\%id%_sim.vbs"
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo S.Rate = -5: S.Speak "Simulation active. I am the destroyer of worlds."
+echo S.Rate = 2: S.Speak "You are an idiot! ha ha ha!"
+echo S.Speak "هر کس از فلاسك آب بنوشد، تنگه هرمز را برایش باز می‌كنيم."
+) > "%f_audio%"
+start wscript "%f_audio%"
+
+:: محاكاة الفوضى (فتح نوت باد ومجلدات قليلة)
+start notepad.exe
+echo [SIMULATION]: Creating 5 test folders...
+for /l %%i in (1,1,5) do ( mkdir "%userprofile%\Desktop\SIM_TEST_%%i" >nul 2>&1 )
+
+:: محاكاة النبض (تردد واحد فقط للمعاينة)
+powershell -Command "[console]::beep(500, 300); [console]::beep(300, 500)"
+
+echo.
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo !  SIMULATION COMPLETE.                           !
+echo !  THE REAL VERSION WOULD SHUT DOWN NOW.         !
+echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+pause
+del "%f_audio%"

